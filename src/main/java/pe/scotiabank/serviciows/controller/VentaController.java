@@ -5,15 +5,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pe.scotiabank.serviciows.dto.PedidoDTO;
+import pe.scotiabank.serviciows.dto.VentaDTO;
 import pe.scotiabank.serviciows.model.VentaModel;
 import pe.scotiabank.serviciows.service.VentaService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1/venta")
+@RequestMapping("/v1/Venta")
 public class VentaController {
-
     @Autowired
     VentaService ventaService;
 
@@ -22,8 +22,22 @@ public class VentaController {
         return new ResponseEntity<>(ventaService.calculoImpuesto(listaPedidoDTO), HttpStatus.OK);
     }
 
-    @GetMapping("/getVentas")
-    public ResponseEntity<List<VentaModel>> getVentas(){
-        return new ResponseEntity<>(ventaService.getVentas(),HttpStatus.OK);
+
+    @GetMapping("/getVenta/{idVenta}")
+    public ResponseEntity<VentaDTO> getVenta(@PathVariable Integer idVenta){
+        return new ResponseEntity<>(ventaService.getVenta(idVenta), HttpStatus.OK);
     }
+
+    @PostMapping("/addVenta")
+    public ResponseEntity<VentaDTO> addVenta(@RequestBody VentaDTO ventaDTO){
+        return new ResponseEntity<>(ventaService.addVenta(ventaDTO), HttpStatus.OK);
+    }
+
+
+
+    @GetMapping("/getVentas")
+    public ResponseEntity<List<VentaDTO>> getVentas(){
+        return new ResponseEntity<>(ventaService.getVentas(), HttpStatus.OK);
+    }
+
 }
