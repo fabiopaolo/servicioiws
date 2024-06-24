@@ -20,9 +20,17 @@ public class TarjetaModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer tarjetaId;
 
-    private Integer cuentaId;
+    @ManyToOne
+    @JoinColumn(name = "cuenta_id")
+    private CuentaModel cuenta;//cuentaId
+
     private String numeroTarjeta;
+
+    //@Temporal(TemporalType.TIMESTAMP) se pone una fecha por defecto por eso no se pone el timestamp
     private Date fechaExpiracion;
+
     private String codigoSeguridad;
+
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fechaEmision;
 }

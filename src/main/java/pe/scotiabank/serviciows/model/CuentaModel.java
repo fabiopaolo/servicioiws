@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "Cuentas")
@@ -19,9 +20,19 @@ public class CuentaModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer cuentaId;
 
-    private Integer clientId;
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private ClienteModel cliente;//clientId
     private String tipoCuenta;
     private Double saldo;
+
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fechaApertura;
+
+    @OneToMany(mappedBy = "cuenta", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<TransaccionModel> transacciones;
+
+    @OneToMany(mappedBy = "tarjeta", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<TarjetaModel> tarjetas;
 
 }

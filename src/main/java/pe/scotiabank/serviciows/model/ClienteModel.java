@@ -2,10 +2,9 @@ package pe.scotiabank.serviciows.model;
 
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+
+import java.util.Date;
 
 @Entity
 @Table(name = "Clientes")
@@ -19,8 +18,11 @@ public class ClienteModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer clienteId;
 
+    private String nombre;
     private String direccion;
     private String telefono;
     private String email;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date fechaRegistro;
 
 }
