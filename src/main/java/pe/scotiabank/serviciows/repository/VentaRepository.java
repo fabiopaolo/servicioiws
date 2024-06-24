@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import pe.scotiabank.serviciows.model.VentaModel;
 
 @Repository
-public interface VentaRepository extends JpaRepository<VentaModel,Integer> {
+public interface VentaRepository extends JpaRepository<VentaModel, Integer> {
 
 }

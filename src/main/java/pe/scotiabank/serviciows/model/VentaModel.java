@@ -1,21 +1,19 @@
 package pe.scotiabank.serviciows.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
 
+@Entity
 @Setter
 @Getter
-@Entity
 @Table(name = "Venta")
-public class VentaModel{
+public class VentaModel {
     @Id
-    @Column(name="id_venta",nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_venta", nullable=false)
     private Integer idVenta;
 
     @Column(name="direccion")

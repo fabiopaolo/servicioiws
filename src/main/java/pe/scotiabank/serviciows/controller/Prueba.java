@@ -6,10 +6,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/v1/prueba")
-public class PruebaController {
+public class Prueba {
 
     @GetMapping("/saludo")
     public String getSaludo(){
-        return "Hola";
+        return "Bienvenido a SPRING";
     }
+
+
+
 }
