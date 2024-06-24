@@ -6,6 +6,7 @@ import pe.scotiabank.serviciows.dto.PedidoDTO;
 import pe.scotiabank.serviciows.dto.VentaDTO;
 import pe.scotiabank.serviciows.model.VentaModel;
 import pe.scotiabank.serviciows.repository.VentaRepository;
+
 import java.util.List;
 
 @Service
@@ -36,13 +37,7 @@ public class VentaService {
         return listaVentasDTO;
     }
 
-    public VentaDTO getVenta(Integer idVenta) {
-        VentaModel ventaModel = this.ventaRepository.findById(idVenta).orElse(null);
-        VentaDTO ventaDTO = modelMapper.map(ventaModel, VentaDTO.class);
-        return ventaDTO;
-    }
-
-    public VentaDTO addVenta(VentaDTO ventaDTO) {
+    public VentaDTO addVenta(VentaDTO ventaDTO){
         VentaModel ventaModel = modelMapper.map(ventaDTO, VentaModel.class);
         ventaModel = this.ventaRepository.save(ventaModel);
         return modelMapper.map(ventaModel, VentaDTO.class);

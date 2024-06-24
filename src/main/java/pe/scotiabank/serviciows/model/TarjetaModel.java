@@ -6,21 +6,23 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Date;
+
 @Entity
-@Table(name = "Venta")
+@Table(name = "Tarjetas")
 @Setter
 @Getter
 @ToString
 @RequiredArgsConstructor
-public class VentaModel {
+public class TarjetaModel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_venta", nullable=false)
-    private Integer idVenta;
+    private Integer tarjetaId;
 
-    @Column(name="direccion")
-    private String direccion;
-
-    @Column(name="total")
-    private float total;
+    private Integer cuentaId;
+    private String numeroTarjeta;
+    private Date fechaExpiracion;
+    private String codigoSeguridad;
+    private Date fechaEmision;
 }

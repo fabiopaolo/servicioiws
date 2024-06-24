@@ -22,10 +22,9 @@ public class VentaController {
         return new ResponseEntity<>(ventaService.calculoImpuesto(listaPedidoDTO), HttpStatus.OK);
     }
 
-
-    @GetMapping("/getVenta/{idVenta}")
-    public ResponseEntity<VentaDTO> getVenta(@PathVariable Integer idVenta){
-        return new ResponseEntity<>(ventaService.getVenta(idVenta), HttpStatus.OK);
+    @GetMapping("/getVentas")
+    public ResponseEntity<List<VentaDTO>> getVentas(){
+        return new ResponseEntity<>(ventaService.getVentas(), HttpStatus.OK);
     }
 
     @PostMapping("/addVenta")
@@ -33,11 +32,5 @@ public class VentaController {
         return new ResponseEntity<>(ventaService.addVenta(ventaDTO), HttpStatus.OK);
     }
 
-
-
-    @GetMapping("/getVentas")
-    public ResponseEntity<List<VentaDTO>> getVentas(){
-        return new ResponseEntity<>(ventaService.getVentas(), HttpStatus.OK);
-    }
 
 }

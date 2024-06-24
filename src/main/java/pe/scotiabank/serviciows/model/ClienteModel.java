@@ -1,5 +1,6 @@
 package pe.scotiabank.serviciows.model;
 
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -7,20 +8,19 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "Venta")
+@Table(name = "Clientes")
 @Setter
 @Getter
 @ToString
 @RequiredArgsConstructor
-public class VentaModel {
+public class ClienteModel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_venta", nullable=false)
-    private Integer idVenta;
+    private Integer clienteId;
 
-    @Column(name="direccion")
     private String direccion;
+    private String telefono;
+    private String email;
 
-    @Column(name="total")
-    private float total;
 }
