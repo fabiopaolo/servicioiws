@@ -4,10 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pe.scotiabank.serviciows.dto.PedidoDTO;
-import pe.scotiabank.serviciows.dto.VentaDTO;
-import pe.scotiabank.serviciows.model.VentaModel;
-import pe.scotiabank.serviciows.service.VentaService;
 
 import java.util.List;
 
