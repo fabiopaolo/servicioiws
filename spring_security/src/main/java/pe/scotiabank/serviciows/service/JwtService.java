@@ -34,6 +34,7 @@ public class JwtService implements IJwtService{
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 20))
                 .signWith(getSigningKey(), SignatureAlgorithm.HS256).compact();
+                //.signWith(getSigningKey(), SignatureAlgorithm.RS256).compact();
     }
 
     private boolean isTokenExpired(String token){
